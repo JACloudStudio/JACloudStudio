@@ -1,0 +1,41 @@
+/* =========================
+   FOOTER — PHASE 1
+========================= */
+
+.site-footer {
+  width: 100%;
+  padding: 0.01rem 1rem;
+  background: transparent;
+}
+
+.footer-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-top: 1px solid rgba(0, 0, 0, 0.06);
+  padding-top: 1.5rem;
+}
+
+.footer-brand {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text);
+}
+
+.footer-copy {
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+}

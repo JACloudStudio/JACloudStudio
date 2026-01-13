@@ -1,0 +1,76 @@
+.howitworks {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 6rem 2rem;
+}
+
+.howitworks-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 4rem;
+}
+
+.howitworks-header h2 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.howitworks-header p {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+/* STEPS GRID */
+.howitworks-steps {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+
+/* STEP CARD */
+.how-step {
+  position: relative;
+  padding: 2.5rem;
+  background: transparent;
+
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.how-step.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* NUMBER */
+.step-number {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent);
+  letter-spacing: 0.08em;
+  margin-bottom: 0.75rem;
+}
+
+/* TEXT */
+.how-step h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+}
+
+.how-step p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .howitworks-steps {
+    grid-template-columns: 1fr;
+  }
+}

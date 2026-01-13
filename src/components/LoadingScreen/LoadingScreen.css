@@ -1,0 +1,26 @@
+.loading-container {
+  height: 100vh;
+  width: 100vw;
+  background: #0f172a; /* dark slate */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+}
+
+.loading-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.loading-number {
+  font-size: 4rem;
+  font-weight: bold;
+}
+
+.loading-percent {
+  font-size: 2rem;
+  margin-left: 5px;
+}

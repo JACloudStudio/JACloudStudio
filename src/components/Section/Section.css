@@ -1,0 +1,36 @@
+/* =========================
+   SECTION — BASE WRAPPER
+========================= */
+
+.section {
+  width: 100%;
+  padding: 6rem 2rem;
+}
+
+/* Full page sections (scroll-as-pages) */
+.section-full {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Centered content (hero, contact, etc.) */
+.section-center {
+  align-items: center;
+  text-align: center;
+}
+
+/* Optional max-width utility */
+.section > * {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Mobile spacing */
+@media (max-width: 768px) {
+  .section {
+    padding: 4rem 1.5rem;
+  }
+}
