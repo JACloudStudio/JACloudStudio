@@ -1,5 +1,6 @@
 import { forwardRef } from 'react';
 import { motion } from 'motion/react';
+import { FiUploadCloud } from 'react-icons/fi';
 import BlurText from './BlurText';
 import './Hero.css';
 
@@ -10,6 +11,10 @@ const Hero = forwardRef(function Hero(props, ref) {
 
   return (
     <header ref={ref} className="hero">
+      <video className="hero-video" autoPlay muted loop>
+        <source src="./backgrnd.mp4" type="video/mp4" />
+      </video>
+      
       <motion.div 
         className="hero-content"
         initial={{ opacity: 0, x: -50 }}
@@ -59,17 +64,31 @@ const Hero = forwardRef(function Hero(props, ref) {
         transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
         viewport={{ once: true, margin: "-100px" }}
       >
-        <motion.div 
-          className="hero-visual-placeholder"
-          animate={{
-            y: [0, -20, 0],
-          }}
-          transition={{
-            duration: 4,
-            repeat: Infinity,
-            ease: "easeInOut"
-          }}
-        />
+        <div className="hero-visual-container">
+          <video 
+            className="hero-visual-video"
+            autoPlay 
+            muted 
+            loop
+            playsInline
+          >
+            <source src="./backgrnd.mp4" type="video/mp4" />
+          </video>
+          <div className="hero-visual-lottie">
+            <motion.div
+              animate={{
+                y: [0, -20, 0],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+            >
+              <FiUploadCloud size="60%" color="rgb(255, 255, 255)" />
+            </motion.div>
+          </div>
+        </div>
       </motion.div>
     </header>
   );

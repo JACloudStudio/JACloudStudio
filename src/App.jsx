@@ -39,6 +39,7 @@ function App() {
 
   return (
     <div className="scroll-container" id="top">
+      <div className="animated-blob"></div>
       <Header scrolled={headerScrolled} />
 
       <div className={`floating-menu ${showMenu ? 'visible' : ''}`}>
