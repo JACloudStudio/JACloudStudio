@@ -129,7 +129,7 @@ const ParticleCard = ({
   }, []);
 
   const animateParticles = useCallback(() => {
-    if (!cardRef.current || !isHoveredRef.current) return;
+    if (!cardRef.current) return;
 
     if (!particlesInitialized.current) {
       initializeParticles();
@@ -137,7 +137,7 @@ const ParticleCard = ({
 
     memoizedParticles.current.forEach((particle, index) => {
       const timeoutId = setTimeout(() => {
-        if (!isHoveredRef.current || !cardRef.current) return;
+        if (!cardRef.current) return;
 
         const clone = particle.cloneNode(true);
         cardRef.current.appendChild(clone);
@@ -173,9 +173,11 @@ const ParticleCard = ({
 
     const element = cardRef.current;
 
+    // Start particles on mount
+    animateParticles();
+
     const handleMouseEnter = () => {
       isHoveredRef.current = true;
-      animateParticles();
 
       if (enableTilt) {
         gsap.to(element, {
@@ -190,7 +192,6 @@ const ParticleCard = ({
 
     const handleMouseLeave = () => {
       isHoveredRef.current = false;
-      clearAllParticles();
 
       if (enableTilt) {
         gsap.to(element, {
