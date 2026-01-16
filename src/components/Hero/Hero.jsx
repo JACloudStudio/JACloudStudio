@@ -12,7 +12,7 @@ const Hero = forwardRef(function Hero(props, ref) {
   return (
     <header ref={ref} className="hero">
       <video className="hero-video" autoPlay muted loop>
-        <source src="./backgrnd.mp4" type="video/mp4" />
+        <source src="./bac.mp4" type="video/mp4" />
       </video>
       
       <motion.div 
@@ -72,7 +72,7 @@ const Hero = forwardRef(function Hero(props, ref) {
             loop
             playsInline
           >
-            <source src="./backgrnd.mp4" type="video/mp4" />
+            <source src="./.mp4" type="video/mp4" />
           </video>
           <div className="hero-visual-lottie">
             <motion.div
@@ -85,7 +85,7 @@ const Hero = forwardRef(function Hero(props, ref) {
                 ease: "easeInOut"
               }}
             >
-              <FiUploadCloud size="60%" color="rgb(255, 255, 255)" />
+              <FiUploadCloud size="60%" color="rgb(0, 0, 0)" />
             </motion.div>
           </div>
         </div>
