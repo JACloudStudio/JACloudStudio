@@ -10,6 +10,10 @@
 
   background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  will-change: transform, background;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 /* CONTAINER */
@@ -20,17 +24,24 @@
 
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 /* LOGO — LEFT */
+
 .header-logo {
-  margin-right: 880px;
+  margin-right: auto;
 
   font-size: 1.1rem;
   font-weight: 600;
   letter-spacing: -0.01em;
   text-decoration: none;
   color: var(--text);
+  transition: transform 0.2s ease;
+}
+
+.header-logo:hover {
+  transform: translateY(-1px);
 }
 
 .header-logo span {
@@ -41,8 +52,11 @@
 /* NAV — RIGHT */
 .header-nav {
   display: flex;
-  gap: 1.5rem;
+  gap: 1.25rem;
   margin-right: 2rem;
+  align-items: center;
+  flex-wrap: nowrap;
+  white-space: nowrap;
 }
 
 .header-nav a {
@@ -52,6 +66,7 @@
   position: relative;
   text-decoration: none;
   transition: color 0.2s ease;
+  will-change: color;
 }
 
 .header-nav a:hover {
@@ -70,6 +85,7 @@
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.25s ease;
+  will-change: transform;
 }
 
 .header-nav a:hover::after {
@@ -90,21 +106,52 @@
   color: var(--text);
   text-decoration: none;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  transition: background 0.2s ease, border 0.2s ease;
+  transition: background 0.2s ease, border 0.2s ease, transform 0.2s ease;
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 .header-contact:hover {
   background: rgba(107, 114, 128, 0.1);
   border-color: rgba(107, 114, 128, 0.3);
+  transform: translateY(-1px);
+}
+
+.header-contact:active {
+  transform: translateY(0);
 }
 
 /* MOBILE */
+@media (max-width: 1024px) {
+  .header-logo {
+    margin-right: auto;
+  }
+}
+
 @media (max-width: 768px) {
   .header-inner {
     padding: 1rem 1.25rem;
   }
 
+  .header-logo {
+    margin-right: auto;
+    font-size: 1rem;
+  }
+
   .header-nav {
     display: none;
   }
+
+  .header-actions {
+    display: none;
+  }
 }
+
+@media (max-width: 480px) {
+  .header-inner {
+    padding: 0.75rem 1rem;
+  }
+
+  .header-logo {
+    font-size: 0.95rem;
+  }}

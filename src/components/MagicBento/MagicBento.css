@@ -5,8 +5,8 @@
   --purple-primary: rgba(132, 0, 255, 1);
   --purple-glow: rgba(132, 0, 255, 0.2);
   --purple-border: rgba(132, 0, 255, 0.8);
-  --border-color: #392e4e;
-  --background-dark: #060010;
+  --border-color: #2a1f45;
+  --background-dark: #050008;
   color-scheme: light dark;
 }
 
@@ -24,27 +24,28 @@
   flex-direction: column;
   justify-content: space-between;
   position: relative;
-  aspect-ratio: 4/3;
-  min-height: 200px;
+  aspect-ratio: auto;
+  min-height: 500px;
   width: 100%;
   max-width: 100%;
-  padding: 1.25em;
-  border-radius: 20px;
-  border: 1px solid var(--border-color);
-  background: var(--background-dark);
+  padding: 3.5em;
+  border-radius: 32px;
+  border: 1.5px solid var(--border-color);
+  background: linear-gradient(135deg, var(--background-dark) 0%, #0a0612 100%);
   font-weight: 300;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
 
   --glow-x: 50%;
   --glow-y: 50%;
   --glow-intensity: 0;
-  --glow-radius: 200px;
+  --glow-radius: 250px;
 }
 
 .magic-bento-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-8px);
+  border-color: rgba(132, 0, 255, 0.4);
+  box-shadow: 0 20px 50px rgba(132, 0, 255, 0.15), 0 0 1px rgba(255, 255, 255, 0.1) inset;
 }
 
 .magic-bento-card__header,
@@ -64,7 +65,7 @@
 }
 
 .magic-bento-card__label {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .magic-bento-card__title,
@@ -74,15 +75,18 @@
 }
 
 .magic-bento-card__title {
-  font-weight: 400;
-  font-size: 16px;
-  margin: 0 0 0.25em;
+  font-weight: 600;
+  font-size: 36px;
+  margin: 0 0 1em;
+  letter-spacing: -0.02em;
+  color: #fff;
 }
 
 .magic-bento-card__description {
-  font-size: 12px;
-  line-height: 1.2;
-  opacity: 0.9;
+  font-size: 19px;
+  line-height: 1.75;
+  opacity: 0.92;
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .magic-bento-card--text-autohide .magic-bento-card__title,
@@ -125,22 +129,11 @@
 
 @media (min-width: 1024px) {
   .card-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
   }
 
   .magic-bento-card:nth-child(3) {
-    grid-column: span 2;
-    grid-row: span 2;
-  }
-
-  .magic-bento-card:nth-child(4) {
     grid-column: 1 / span 2;
-    grid-row: 2 / span 2;
-  }
-
-  .magic-bento-card:nth-child(6) {
-    grid-column: 4;
-    grid-row: 3;
   }
 }
 

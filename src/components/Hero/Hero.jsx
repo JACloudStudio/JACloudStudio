@@ -1,17 +1,26 @@
-import { forwardRef } from 'react';
+import { forwardRef, useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { FiUploadCloud } from 'react-icons/fi';
 import BlurText from './BlurText';
 import './Hero.css';
 
 const Hero = forwardRef(function Hero(props, ref) {
+  const [videoLoaded, setVideoLoaded] = useState(false);
+
   const handleAnimationComplete = () => {
     console.log('Animation completed!');
   };
 
   return (
     <header ref={ref} className="hero">
-      <video className="hero-video" autoPlay muted loop>
+      <video 
+        className="hero-video" 
+        autoPlay 
+        muted 
+        loop
+        playsInline
+        onLoadedData={() => setVideoLoaded(true)}
+      >
         <source src="./bac.mp4" type="video/mp4" />
       </video>
       

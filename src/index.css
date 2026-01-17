@@ -20,6 +20,10 @@
   --shadow-lg: 0 30px 80px rgba(0, 0, 0, 0.25);
 
   line-height: 1.6;
+
+  /* Performance optimization */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Reset */

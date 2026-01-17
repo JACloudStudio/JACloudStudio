@@ -1,0 +1,90 @@
+.cursor-trail {
+  position: fixed;
+  width: 100px;
+  height: 24px;
+  pointer-events: none;
+  z-index: 9999;
+  
+  /* Flowing water stream */
+  background: linear-gradient(
+    90deg,
+    var(--trail-color, rgba(255, 255, 255, 0)) 0%,
+    var(--trail-color, rgba(255, 255, 255, 0)) 60%,
+    transparent 100%
+  );
+  
+  border-radius: 50%;
+  filter: blur(10px);
+  box-shadow: 0 0 20px rgba(180, 180, 180, 0.3);
+  
+  /* Smooth fade out animation */
+  animation: water-stream-fade 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  
+  /* Performance optimizations */
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes water-stream-fade {
+  0% {
+    opacity: 1;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 0;
+    filter: blur(15px);
+  }
+}
+
+/* Water splash droplets */
+.water-splash {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(184, 184, 184, 0) 0%,
+    rgba(202, 202, 202, 0) 70%,
+    transparent 100%
+  );
+  
+  box-shadow: 0 0 8px rgba(100, 100, 100, 0.4);
+  
+  width: var(--splash-size, 6px);
+  height: var(--splash-size, 6px);
+  
+  transform: translate(-50%, -50%);
+  
+  animation: water-splash-spread 0.8s ease-out forwards;
+  
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@keyframes water-splash-spread {
+  0% {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translate(
+      calc(-50% + var(--spread-x)),
+      calc(-50% + var(--spread-y))
+    ) scale(0.3);
+    opacity: 0;
+  }
+}
+
+/* Hide on mobile/touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .cursor-trail,
+  .water-splash {
+    display: none;
+  }
+}

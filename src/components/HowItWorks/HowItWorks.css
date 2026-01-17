@@ -3,17 +3,22 @@
   margin: 0 auto;
   padding: 6rem 2rem;
   background: linear-gradient(180deg, #f3f4f6 70%, #e5e7eb 100%);
+  contain: layout style paint;
 }
 
 .howitworks-header {
   text-align: center;
   max-width: 600px;
   margin: 0 auto 4rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .howitworks-header h2 {
   font-size: 2.4rem;
   margin-bottom: 1rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .howitworks-header p {
@@ -27,6 +32,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
+  will-change: contents;
 }
 
 /* STEP CARD */
@@ -36,15 +42,18 @@
   background: transparent;
 
   opacity: 0;
-  transform: translateY(20px);
+  transform: translateY(20px) translateZ(0);
   transition:
     opacity 0.6s ease,
     transform 0.6s ease;
+  will-change: transform, opacity;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .how-step.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translateY(0) translateZ(0);
 }
 
 /* NUMBER */
@@ -61,6 +70,8 @@
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
   font-weight: 600;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .how-step p {
@@ -70,8 +81,118 @@
 }
 
 /* RESPONSIVE */
+@media (max-width: 1024px) {
+  .howitworks {
+    padding: 5rem 2rem;
+  }
+
+  .howitworks-steps {
+    gap: 2.5rem;
+  }
+
+  .how-step {
+    padding: 2rem;
+  }
+
+  .howitworks-header h2 {
+    font-size: 2rem;
+  }
+
+  .howitworks-header p {
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 900px) {
   .howitworks-steps {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .howitworks {
+    padding: 4rem 1.5rem;
+  }
+
+  .howitworks-header {
+    margin-bottom: 3rem;
+  }
+
+  .how-step {
+    padding: 1.75rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .howitworks {
+    padding: 3rem 1.5rem;
+    min-height: auto;
+  }
+
+  .howitworks-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .howitworks-header h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .howitworks-header p {
+    font-size: 0.95rem;
+  }
+
+  .howitworks-steps {
     grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .how-step {
+    padding: 1.5rem;
+  }
+
+  .how-step h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .how-step p {
+    font-size: 0.9rem;
+  }
+
+  .step-number {
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .howitworks {
+    padding: 2rem 1rem;
+  }
+
+  .howitworks-header {
+    margin-bottom: 2rem;
+  }
+
+  .howitworks-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .howitworks-header p {
+    font-size: 0.9rem;
+  }
+
+  .how-step {
+    padding: 1.25rem;
+  }
+
+  .how-step h3 {
+    font-size: 1rem;
+  }
+
+  .how-step p {
+    font-size: 0.85rem;
+    line-height: 1.5;
   }
 }

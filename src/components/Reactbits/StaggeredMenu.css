@@ -63,6 +63,9 @@
   border-radius: 50px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  will-change: transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .sm-toggle:hover {
@@ -70,10 +73,8 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 }
 
-.sm-toggle:focus-visible {
-  outline: 2px solid #bea3a3aa;
-  outline-offset: 4px;
-  border-radius: 4px;
+.sm-toggle:active {
+  transform: translateY(0);
 }
 
 .sm-line:last-of-type {
@@ -288,6 +289,11 @@
   display: inline-block;
   text-decoration: none;
   padding-right: 1.4em;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.sm-panel-item:visited {
+  color: #000;
 }
 
 .staggered-menu-panel .sm-socials-list .sm-socials-link {
@@ -310,8 +316,9 @@
 
 .sm-panel-itemLabel {
   display: inline-block;
-  will-change: transform;
   transform-origin: 50% 100%;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 .sm-panel-item:hover {
@@ -347,6 +354,45 @@
   .staggered-menu-wrapper[data-open] .sm-logo-img {
     filter: invert(100%);
   }
+
+  .sm-panel-item {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .staggered-menu-header {
+    padding: 1.5em;
+  }
+
+  .sm-logo-img {
+    height: 28px;
+  }
+
+  .sm-toggle {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.9rem;
+  }
+
+  .staggered-menu-panel {
+    width: 100%;
+    left: 0;
+    right: 0;
+    padding: 5.5em 1.5em 1.5em 1.5em;
+  }
+
+  .sm-panel-item {
+    font-size: 2rem;
+    padding-right: 1em;
+  }
+
+  .sm-panel-inner {
+    gap: 1rem;
+  }
+
+  .sm-socials {
+    gap: 0.5rem;
+  }
 }
 
 @media (max-width: 640px) {
@@ -354,9 +400,58 @@
     width: 100%;
     left: 0;
     right: 0;
+    padding: 5rem 1rem 1rem 1rem;
   }
 
-  .staggered-menu-wrapper[data-open] .sm-logo-img {
-    filter: invert(100%);
+  .staggered-menu-header {
+    padding: 1em;
+  }
+
+  .sm-logo-img {
+    height: 24px;
+  }
+
+  .sm-toggle {
+    padding: 0.55rem 1rem;
+    font-size: 0.85rem;
+  }
+
+  .sm-panel-item {
+    font-size: 1.5rem;
+    padding-right: 0.8em;
+    letter-spacing: 0;
+  }
+
+  .sm-panel-list[data-numbering] .sm-panel-item::after {
+    font-size: 14px;
+    right: 2em;
+  }
+
+  .sm-socials-link {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .staggered-menu-header {
+    padding: 0.75em;
+  }
+
+  .sm-logo-img {
+    height: 20px;
+  }
+
+  .sm-toggle {
+    padding: 0.5rem 0.875rem;
+    font-size: 0.8rem;
+    border-radius: 40px;
+  }
+
+  .staggered-menu-panel {
+    padding: 4.5rem 0.75rem 0.75rem 0.75rem;
+  }
+
+  .sm-panel-item {
+    font-size: 1.25rem;
   }
 }

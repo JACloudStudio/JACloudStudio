@@ -2,17 +2,21 @@
   max-width: 600px;
   margin: 0 auto;
   padding: 6rem 2rem;
-
+  contain: layout style paint;
 }
 
 .contact-header {
   text-align: center;
   margin-bottom: 3rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .contact-header h2 {
   font-size: 2.4rem;
   margin-bottom: 1rem;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
 .contact-header p {
@@ -26,20 +30,18 @@
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-
 }
 
 .form-group {
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
-  color: black
+  color: black;
 }
 
 .form-group label {
   font-size: 0.9rem;
   font-weight: 500;
-
 }
 
 .form-group input,
@@ -52,6 +54,7 @@
   transition: border-color 0.2s ease, box-shadow 0.2s ease;
   background-color: rgb(255, 255, 255);
   color: #1f2937;
+  will-change: border-color, box-shadow;
 }
 
 .form-group input::placeholder,
@@ -64,8 +67,6 @@
   outline: none;
   border-color: var(--accent);
   box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.15);
-
-  
 }
 
 /* NOTE */
@@ -74,4 +75,91 @@
   margin-top: 2rem;
   font-size: 0.85rem;
   color: var(--muted);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .contact {
+    padding: 5rem 2rem;
+  }
+
+  .contact-header h2 {
+    font-size: 2rem;
+  }
+
+  .contact-header p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact {
+    padding: 4rem 1.5rem;
+  }
+
+  .contact-header {
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-header h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-header p {
+    font-size: 0.95rem;
+  }
+
+  .contact-form {
+    gap: 1.25rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.65rem 0.8rem;
+    font-size: 0.9rem;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact {
+    padding: 3rem 1rem;
+  }
+
+  .contact-header {
+    margin-bottom: 2rem;
+  }
+
+  .contact-header h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .contact-header p {
+    font-size: 0.9rem;
+  }
+
+  .contact-form {
+    gap: 1rem;
+  }
+
+  .form-group label {
+    font-size: 0.85rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    padding: 0.6rem 0.75rem;
+    font-size: 16px;
+    border-radius: 8px;
+    -webkit-appearance: none;
+    appearance: none;
+  }
+
+  .contact-note {
+    font-size: 0.8rem;
+    margin-top: 1.5rem;
+  }
 }

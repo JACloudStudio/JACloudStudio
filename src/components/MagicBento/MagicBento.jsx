@@ -25,24 +25,6 @@ const cardData = [
     title: 'Collaboration',
     description: 'Work seamlessly with your team. Share access, manage roles, and deploy together without friction.',
     label: 'Teamwork'
-  },
-  {
-    color: '#060010',
-    title: 'Automation',
-    description: 'Automated builds, deployments, backups, and updates — so nothing breaks and nothing is manual.',
-    label: 'Efficiency'
-  },
-  {
-    color: '#060010',
-    title: 'Integration',
-    description: 'Connect your website with popular tools, APIs, CI/CD pipelines, and third-party services.',
-    label: 'Connectivity'
-  },
-  {
-    color: '#060010',
-    title: 'Security',
-    description: 'Enterprise-grade security with HTTPS, firewalls, regular updates, and safe configurations.',
-    label: 'Protection'
   }
 ];
 
@@ -662,3 +644,4 @@ const MagicBento = ({
 };
 
 export default MagicBento;
+export { ParticleCard };
