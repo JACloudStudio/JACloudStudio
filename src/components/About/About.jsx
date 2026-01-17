@@ -22,11 +22,6 @@ export default function About() {
     <div className="about-wrapper" id="about">
       <Header scrolled={true} />
 
-      <section className="about-hero">
-        <h1 className="about-title">About the Developers</h1>
-        <p className="about-subtitle">We craft performant, delightful web experiences with a pragmatic engineering ethos.</p>
-      </section>
-
       <section className="about-grid card-grid">
         <ParticleCard className="magic-bento-card">
           <div className="magic-bento-card__content">
@@ -43,17 +38,7 @@ export default function About() {
         <ParticleCard className="magic-bento-card about-card-full">
           <div className="magic-bento-card__content">
             <h3 className="magic-bento-card__title">About Us</h3>
-            <p className="magic-bento-card__description">We're not just business partners — we're school friends who turned years of teamwork into a company.
-
-From building small projects together in school to now pursuing B.Tech in CSE, we've always shared the same mindset: learn fast, build better, and deliver with honesty. Over time, our skills grew in different directions, but our goal stayed the same — creating things that actually work in the real world.
-
-Today, we're combining our strengths to help startups and well-established businesses bring their ideas online, scale smoothly, and stay reliable in the cloud.
-
-One of us specializes in Game Development, focusing on building interactive, high-performance experiences and modern front-end systems. The other specializes in Cloud Infrastructure, handling deployment, automation, scalability, and ensuring everything runs fast, secure, and stable.
-
-We built this website as the first step of our journey — not just as a portfolio, but as a promise: we build with care, we communicate clearly, and we deliver what we commit.
-
-Whether you need a complete website deployment, cloud hosting, or a full digital setup, we're here to make the process simple, professional, and stress-free.</p>
+            <p className="magic-bento-card__description">We're not just business partners — we're school friends who turned years of teamwork into a company. From building small projects together in school to now pursuing B.Tech in CSE, we've always shared the same mindset: learn fast, build better, and deliver with honesty. Over time, our skills grew in different directions, but our goal stayed the same — creating things that actually work in the real world. Today, we're combining our strengths to help startups and well-established businesses bring their ideas online, scale smoothly, and stay reliable in the cloud. One of us specializes in Game Development, focusing on building interactive, high-performance experiences and modern front-end systems. The other specializes in Cloud Infrastructure, handling deployment, automation, scalability, and ensuring everything runs fast, secure, and stable. We built this website as the first step of our journey — not just as a portfolio, but as a promise: we build with care, we communicate clearly, and we deliver what we commit. Whether you need a complete website deployment, cloud hosting, or a full digital setup, we're here to make the process simple, professional, and stress-free.</p>
           </div>
         </ParticleCard>
       </section>
