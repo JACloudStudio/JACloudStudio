@@ -1,7 +1,57 @@
 import './Pricing.css';
 
 const Pricing = () => {
-  const plans = [
+  const websitePlans = [
+    {
+      name: 'Basic',
+      price: '₹8,999',
+      period: 'one-time',
+      description: 'Perfect for personal portfolios & small landing pages',
+      features: [
+        'Responsive design',
+        '3-5 pages',
+        'Contact form integration',
+        'Basic SEO setup',
+        'Mobile optimized',
+        '1 month free hosting'
+      ],
+      highlight: false
+    },
+    {
+      name: 'Premium',
+      price: '₹27,999',
+      period: 'one-time',
+      description: 'Best for growing businesses & startups',
+      features: [
+        'Everything in Basic',
+        '7-10 pages',
+        'Custom design',
+        'CMS integration',
+        'Advanced SEO',
+        'E-commerce ready',
+        '3 months free hosting'
+      ],
+      highlight: true
+    },
+    {
+      name: 'Business',
+      price: '₹42,999',
+      period: 'one-time',
+      description: 'Complete solution for established businesses',
+      features: [
+        'Everything in Premium',
+        'Unlimited pages',
+        'Full e-commerce',
+        'Custom features',
+        'API integrations',
+        'Advanced analytics',
+        '6 months free hosting'
+      ],
+      highlight: false
+    }
+  ];
+
+  const hostingPlans = [
     {
       name: 'Starter',
       price: '₹2,500',
@@ -75,18 +125,20 @@ const Pricing = () => {
       <div className="pricing-container">
         {/* Header */}
         <div className="pricing-header">
-          <h2 className="pricing-title">What we do</h2>
+          <h2 className="pricing-title">Our Services</h2>
           <p className="pricing-subtitle">
-            We manage, host, and maintain your website so you never worry about downtime, errors, or technical issues.
-          </p>
-          <p className="pricing-subtitle">
-            We handle deployment, monitoring, fixes, updates, backups, and support. You focus on your business.
+            We build professional websites and provide reliable hosting & maintenance services for businesses of all sizes.
           </p>
         </div>
 
-        {/* Pricing Cards */}
-        <div className="pricing-cards">
-          {plans.map((plan, index) => (
+        {/* Hosting & Maintenance Pricing */}
+        <div className="pricing-category">
+          <h3 className="category-title">Hosting & Maintenance</h3>
+          <p className="category-subtitle">
+            We manage, host, and maintain your website so you never worry about downtime, errors, or technical issues
+          </p>
+          <div className="pricing-cards">
+            {hostingPlans.map((plan, index) => (
             <div 
               key={index} 
               className={`pricing-card ${plan.highlight ? 'pricing-card-highlight' : ''}`}
@@ -113,6 +165,45 @@ const Pricing = () => {
               </div>
             </div>
           ))}
+          </div>
+        </div>
+
+        {/* Website Development Pricing */}
+        <div className="pricing-category">
+          <h3 className="category-title">Website Development</h3>
+          <p className="category-subtitle">
+            Complete website solutions built from scratch with modern design and functionality
+          </p>
+          <div className="pricing-cards">
+            {websitePlans.map((plan, index) => (
+              <div 
+                key={index} 
+                className={`pricing-card ${plan.highlight ? 'pricing-card-highlight' : ''}`}
+              >
+                {plan.highlight && <div className="popular-badge">Most Popular</div>}
+                <div className="pricing-card-header">
+                  <h3 className="plan-name">{plan.name}</h3>
+                  <div className="plan-price">
+                    <span className="price">{plan.price}</span>
+                    <span className="period">/ {plan.period}</span>
+                  </div>
+                  <p className="plan-description">{plan.description}</p>
+                </div>
+                <div className="pricing-card-body">
+                  <ul className="features-list">
+                    {plan.features.map((feature, idx) => (
+                      <li key={idx} className="feature-item">
+                        <svg className="check-icon" viewBox="0 0 20 20" fill="currentColor">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
 
         {/* Note */}

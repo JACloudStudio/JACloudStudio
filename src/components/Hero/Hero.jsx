@@ -46,7 +46,7 @@ const Hero = forwardRef(function Hero(props, ref) {
         />
 
         <BlurText
-          text="We deploy, secure, and maintain websites on the cloud so you never have to worry about uptime."
+          text="Already have a website? We’ll host it.  Need one? We’ll build it too."
           delay={220}
           className="hero-description"
           onAnimationComplete={handleAnimationComplete}

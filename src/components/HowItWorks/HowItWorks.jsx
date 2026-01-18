@@ -31,7 +31,7 @@ export default function HowItWorks() {
         <Step
           number="01"
           title="Share your website"
-          description="Send us your website or project details. We review everything and plan the setup."
+          description="Send us your website or We'll make one for you. We review everything and plan the setup."
         />
 
         <Step
