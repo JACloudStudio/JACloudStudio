@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing - jacloudstudio</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: linear-gradient(180deg, #e5e7eb 0%, #d1d5db 100%);
+      color: #1f2937;
+      min-height: 100vh;
+      padding: 4rem 2rem;
+    }
+
+    .container {
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Header */
+    .header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .title {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: #1f2937;
+    }
+
+    .subtitle {
+      font-size: 1.2rem;
+      color: #6b7280;
+      max-width: 800px;
+      margin: 0 auto 1rem;
+      line-height: 1.8;
+    }
+
+    /* Pricing Cards */
+    .pricing-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+      margin-bottom: 4rem;
+    }
+
+    .pricing-card {
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 20px;
+      padding: 2.5rem;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+      border-color: rgba(107, 114, 128, 0.6);
+      box-shadow: 0 20px 40px rgba(107, 114, 128, 0.2);
+    }
+
+    .pricing-card.highlight {
+      background: rgba(107, 114, 128, 0.05);
+      border: 2px solid #6b7280;
+      position: relative;
+    }
+
+    .pricing-card.highlight::before {
+      content: 'POPULAR';
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%);
+      color: #ffffff;
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 0.4rem 1rem;
+      border-radius: 20px;
+      letter-spacing: 1px;
+    }
+
+    .card-header {
+      text-align: center;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .plan-name {
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .price {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #6b7280;
+    }
+
+    .period {
+      font-size: 1.1rem;
+      color: #6b7280;
+      margin-left: 0.3rem;
+    }
+
+    .description {
+      font-size: 0.95rem;
+      color: #6b7280;
+      margin-top: 1rem;
+      line-height: 1.6;
+    }
+
+    .card-body {
+      padding-top: 2rem;
+    }
+
+    .features {
+      list-style: none;
+    }
+
+    .feature {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 0.75rem 0;
+      color: #374151;
+    }
+
+    .check {
+      width: 20px;
+      height: 20px;
+      color: #6b7280;
+      flex-shrink: 0;
+    }
+
+    /* Note */
+    .note {
+      background: rgba(107, 114, 128, 0.05);
+      border: 1px solid rgba(107, 114, 128, 0.2);
+      border-radius: 15px;
+      padding: 2rem;
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .note p {
+      color: #6b7280;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .note p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Why Choose Us */
+    .why-section {
+      margin-bottom: 4rem;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+    }
+
+    .section-text {
+      font-size: 1.2rem;
+      color: #6b7280;
+      margin-bottom: 2rem;
+    }
+
+    .benefits {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .benefit {
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 15px;
+      padding: 2rem;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .benefit:hover {
+      transform: translateY(-5px);
+    }
+
+    .icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .contrast {
+      font-size: 1.3rem;
+      color: #6b7280;
+      margin-top: 2rem;
+    }
+
+    .contrast strong {
+      color: #6b7280;
+    }
+
+    /* Why Choose Each Plan */
+    .choose-section {
+      margin-bottom: 4rem;
+    }
+
+    .choose-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+
+    .choose-card {
+      background: #ffffff;
+      border: 1px solid #d1d5db;
+      border-radius: 15px;
+      padding: 2rem;
+    }
+
+    .choose-title {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #6b7280;
+      margin-bottom: 1.5rem;
+    }
+
+    .choose-list {
+      list-style: none;
+    }
+
+    .choose-list li {
+      color: #374151;
+      padding: 0.5rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .choose-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: #6b7280;
+      font-weight: bold;
+    }
+
+    /* CTA */
+    .cta {
+      text-align: center;
+      padding: 3rem 2rem;
+    }
+
+    .quote {
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1.8;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem;
+      background: rgba(107, 114, 128, 0.05);
+      border-left: 4px solid #6b7280;
+      border-radius: 10px;
+      font-style: italic;
+      color: #1f2937;
+    }
+
+    /* Back Button */
+    .back-btn {
+      position: fixed;
+      top: 2rem;
+      left: 2rem;
+      background: rgba(107, 114, 128, 0.1);
+      border: 1px solid #6b7280;
+      color: #6b7280;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background: #6b7280;
+      color: #ffffff;
+      transform: translateX(-5px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      body {
+        padding: 3rem 1.5rem;
+      }
+
+      .title {
+        font-size: 2rem;
+      }
+
+      .subtitle {
+        font-size: 1rem;
+      }
+
+      .pricing-cards {
+        grid-template-columns: 1fr;
+      }
+
+      .price {
+        font-size: 2.5rem;
+      }
+
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .quote {
+        font-size: 1.2rem;
+        padding: 1.5rem;
+      }
+
+      .back-btn {
+        top: 1rem;
+        left: 1rem;
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a href="/jacloudstudio/" class="back-btn">← Back to Home</a>
+
+  <div class="container">
+    <!-- Header -->
+    <div class="header">
+      <h1 class="title">What we do</h1>
+      <p class="subtitle">
+        We manage, host, and maintain your website so you never worry about downtime, errors, or technical issues.
+      </p>
+      <p class="subtitle">
+        We handle deployment, monitoring, fixes, updates, backups, and support. You focus on your business.
+      </p>
+    </div>
+
+    <!-- Pricing Cards -->
+    <div class="pricing-cards">
+      <!-- Starter -->
+      <div class="pricing-card">
+        <div class="card-header">
+          <h2 class="plan-name">Starter</h2>
+          <div>
+            <span class="price">₹2,500</span>
+            <span class="period">/ month</span>
+          </div>
+          <p class="description">Best for personal sites, portfolios, landing pages</p>
+        </div>
+        <div class="card-body">
+          <ul class="features">
+            <li class="feature">
+              <svg class="check" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Website deployment
+            </li>
+            <li class="feature">
+              <svg class="check" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Uptime monitoring
+            </li>
+            <li class="feature">
+              <svg class="check" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              SSL + domain setup
+            </li>
+            <li class="feature">
+              <svg class="check" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Basic support
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Pro -->
+      <div class="pricing-card highlight">
+        <div class="card-header">
+          <h2 class="plan-name">Pro</h2>
+          <div>
+            <span class="price">₹5,000</span>
+            <span class="period">/ month</span>
+          </div>
+          <p class="description">Best for small businesses</p>
+        </div>
+        <div class="card-body">
+          <ul class="features">
+            <li class="feature">
+              <svg class="check" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Everything in Starter
+            </li>
+            <li class="feature">
+              <svg class="check" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Small content updates
+            </li>
+            <li class="feature">
+              <svg class="check" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Backup management
+            </li>
+            <li class="feature">
+              <svg class="check" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Faster support response
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Premium -->
+      <div class="pricing-card">
+        <div class="card-header">
+          <h2 class="plan-name">Premium</h2>
+          <div>
+            <span class="price">₹10,000</span>
+            <span class="period">/ month</span>
+          </div>
+          <p class="description">Best for startups & serious business websites</p>
+        </div>
+        <div class="card-body">
+          <ul class="features">
+            <li class="feature">
+              <svg class="check" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Everything in Pro
+            </li>
+            <li class="feature">
+              <svg class="check" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Bug fixing
+            </li>
+            <li class="feature">
+              <svg class="check" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Performance optimization
+            </li>
+            <li class="feature">
+              <svg class="check" viewBox="0 0 20 20" fill="currentColor">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+              </svg>
+              Priority emergency support
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Note -->
+    <div class="note">
+      <p><strong>Note:</strong> Hosting/cloud bills are paid by the client separately. You pay us for responsibility and maintenance.</p>
+      <p>Optional one-time setup fee: ₹1,000 – ₹2,000</p>
+    </div>
+
+    <!-- Why Choose Us -->
+    <div class="why-section">
+      <h2 class="section-title">Why choose us</h2>
+      <p class="section-text">
+        Because hosting alone doesn't protect your website. We give you:
+      </p>
+      <div class="benefits">
+        <div class="benefit">
+          <div class="icon">👤</div>
+          <p>A human who monitors your site</p>
+        </div>
+        <div class="benefit">
+          <div class="icon">🔧</div>
+          <p>A human who fixes problems</p>
+        </div>
+        <div class="benefit">
+          <div class="icon">✅</div>
+          <p>A human who takes responsibility</p>
+        </div>
+      </div>
+      <p class="contrast">
+        Cloud providers give servers. <strong>We give peace of mind.</strong>
+      </p>
+    </div>
+
+    <!-- Why Choose Each Plan -->
+    <div class="choose-section">
+      <h2 class="section-title">Why choose each plan</h2>
+      <div class="choose-grid">
+        <div class="choose-card">
+          <h3 class="choose-title">Choose Starter (₹2,500) if:</h3>
+          <ul class="choose-list">
+            <li>Your site is simple</li>
+            <li>You just need it online and stable</li>
+            <li>You want the lowest cost option</li>
+          </ul>
+        </div>
+        <div class="choose-card">
+          <h3 class="choose-title">Choose Pro (₹5,000) if:</h3>
+          <ul class="choose-list">
+            <li>Your business updates content</li>
+            <li>You need backups</li>
+            <li>You want faster support</li>
+          </ul>
+        </div>
+        <div class="choose-card">
+          <h3 class="choose-title">Choose Premium (₹10,000) if:</h3>
+          <ul class="choose-list">
+            <li>Your website makes you money</li>
+            <li>Downtime is expensive</li>
+            <li>You want full technical support</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta">
+      <blockquote class="quote">
+        We keep your website online, fast, and stress-free. You run your business. We run your infrastructure.
+      </blockquote>
+    </div>
+  </div>
+</body>
+</html>
